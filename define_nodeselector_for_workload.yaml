@@ -1,0 +1,17 @@
+To overcome the error of validation webhook on K8s cluster, Add the following in your workload(deployments,rc,rs,ss,ds)
+at spec.template.spec ,
+
+
+#################################################################################
+
+      nodeSelector:
+        k8s-version: 1.10.6-gke.2
+
+##################################################################################
+
+
+ATTENTION/IMPORTANT NOTE:- 
+
+1). The above label and its value, is exactly what should be used in your workload. This denotes the K8s version that you prefer to run your workload on. 
+
+2). The label key shall remain the same but the label value will keep changing in the future as and when the new K8s versions is released. Hence, you decide which K8s version to run on and upgrade at your will by changing the above label value(Use the only those label values that are mentioned above).  

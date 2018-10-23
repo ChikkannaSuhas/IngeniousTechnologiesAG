@@ -1,5 +1,5 @@
 To overcome the error of validation webhook on K8s cluster, Add the following in your workload(deployments,rc,rs,ss,ds)
- at spec.template.spec ,
+at spec.template.spec ,
 
 
 #################################################################################
