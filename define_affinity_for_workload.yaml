@@ -1,5 +1,7 @@
 To overcome the error of validation webhook on K8s cluster, Add the following in your workload(deployments,rc,rs,ss,ds) at spec.template.spec ,
 
+#################################################################################
+
       affinity:
         podAntiAffinity:
           preferredDuringSchedulingIgnoredDuringExecution:
@@ -12,5 +14,10 @@ To overcome the error of validation webhook on K8s cluster, Add the following in
                   values:
                   - <label_value_of_pod>
               topologyKey: failure-domain.beta.kubernetes.io/zone
+
+
+##################################################################################
+
+
 
 NOTE:- Above is a recommendation which can be used. Feel free to change the above config in your workload as per your need/requirement. 
