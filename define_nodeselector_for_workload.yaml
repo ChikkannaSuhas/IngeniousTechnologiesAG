@@ -12,6 +12,45 @@ at spec.template.spec ,
 
 ATTENTION/IMPORTANT NOTE:- 
 
-1). The above label and its value, is exactly what should be used in your workload. This denotes the K8s version that you prefer to run your workload on. 
+1). The above label and its value, is exactly what should be used in your workload. This denotes the K8s version that you prefer to run your workload on. Currently, we are using the version `1.10.2-gke.3`. Using the above nodeSelector will move(migrate) your workload, to àbove newer K8s verison of `1.10.6-gke.2` (Note that is is fine to migrate from & to a sub-minor version, so nothing should break).
 
-2). The label key shall remain the same but the label value will keep changing in the future as and when the new K8s versions is released. Hence, you decide which K8s version to run on and upgrade at your will by changing the above label value(Use the only those label values that are mentioned above).  
+2). The label key shall remain the same but the label value will keep changing in the future as and when the new K8s versions is released. Hence, you decide which K8s version to run on and upgrade at your will by changing the above label value(Use only those label values that are mentioned above).
+
+
+
+
+
+FAQs
+
+1). What is this new concept of Upgrade?
+
+It is about a developer deciding to migrate his workload(deployments,rc,rs,ss,ds) at his will. 
+
+
+
+2). Why should a developer decide?
+
+Because, developer is in the best position to test his workload on the new K8s version(based on our previous experience). 
+
+
+
+3). Why this kind of concept?
+
+Because of its convenience of easy migration and rollback. Since, it is only about changing the nodeSelector with appropriate version. 
+
+
+
+4). How do I rollback?
+
+
+There are two statements for this:- 
+
+             a). Statement 1:- Change the above nodeSelector to the previous version i.e., the previous K8s version on which your workload was running fine. 
+             b). Statement 2:- Currently, as you can see there is only one nodeSelector option available above(k8s-version: 1.10.6-gke.2), in this case it means rollback is about deleting the nodeSelector completely. But this statement will not hold true from the next migration onwards, hence this statement will be deleted and only the Statement 1, shall be valid.
+
+
+
+5). What to do, when the migration of my workload fails?
+
+As mentioned above, rollback your workload(deployments,rc,rs,ss,ds) and contact cluster admins(suhas/walter/siamak).
+
