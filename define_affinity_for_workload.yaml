@@ -12,10 +12,10 @@ at spec.template.spec ,
             podAffinityTerm:
               labelSelector:
                 matchExpressions:
-                - key: <label_key_of_pod> //Replace this placeholder
+                - key: <label_key_of_pod>                           //Replace this placeholder, see below
                   operator: In
                   values:
-                  - <label_value_of_pod> //Replace this placeholder
+                  - <label_value_of_pod>                            //Replace this placeholder, see below
               topologyKey: failure-domain.beta.kubernetes.io/zone
 
 
