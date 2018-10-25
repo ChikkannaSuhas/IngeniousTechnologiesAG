@@ -1,3 +1,4 @@
+
 To overcome the error of validation webhook on K8s cluster, Add the following in your workload(deployments,rc,rs,ss,ds)
 at spec.template.spec ,
 
@@ -22,3 +23,33 @@ at spec.template.spec ,
 
 
 NOTE:- Above is a recommendation which can be used. Feel free to change the above config in your workload as per your need/requirement. 
+
+
+FAQ
+
+Why am I getting this error?
+
+To optimize the cluster utilization, the above optimizes high-availabilty of your workload(deployments,rc,rs,ss,ds).
+
+
+What is the `<label_key_of_pod>` and `<label_value_of_pod>`?
+
+It is the label key and label value associated with the pod in your workload(deployments,rc,rs,ss,ds). For instance, in a deployment it can be like below:-
+
+                   ```
+
+		     selector:
+    		       matchLabels:
+                         app: ui
+
+                   ``` 
+
+Therefore, 
+
+                   ```
+
+		     `<label_key_of_pod> ----> app`
+                     `<label_value_of_pod> ---> ui``
+                  
+                   ``` 
+ 
