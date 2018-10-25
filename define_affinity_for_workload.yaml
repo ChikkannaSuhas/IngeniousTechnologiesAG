@@ -12,10 +12,10 @@ at spec.template.spec ,
             podAffinityTerm:
               labelSelector:
                 matchExpressions:
-                - key: <label_key_of_pod>
+                - key: <label_key_of_pod> //Replace this placeholder
                   operator: In
                   values:
-                  - <label_value_of_pod>
+                  - <label_value_of_pod> //Replace this placeholder
               topologyKey: failure-domain.beta.kubernetes.io/zone
 
 
@@ -34,7 +34,7 @@ To optimize the cluster utilization, the above optimizes high-availabilty of you
 
 2). What is the `<label_key_of_pod>` and `<label_value_of_pod>`?
 
-It is the label key and label value associated with the pod in your workload(deployments,rc,rs,ss,ds). For instance, in a deployment it can be like below:-
+It is the `label key` and `label value` associated with the pod in your workload(deployments,rc,rs,ss,ds). For instance, in a deployment it can be like below:-
 
                    ```
 
@@ -49,7 +49,7 @@ Therefore,
                    ```
 
 		     `<label_key_of_pod> ----> app`
-                     `<label_value_of_pod> ---> ui``
+                     `<label_value_of_pod> ---> ui`
                   
                    ``` 
  
