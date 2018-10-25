@@ -12,9 +12,9 @@ at spec.template.spec ,
 
 ATTENTION/IMPORTANT NOTE:- 
 
-1). The above label and its value, is exactly what should be used in your workload. This denotes the K8s version that you prefer to run your workload on. Currently, we are using the version `1.10.2-gke.3`. Using the above nodeSelector will move(migrate) your workload, to àbove newer K8s verison of `1.10.6-gke.2` (Note that is is fine to migrate from & to a sub-minor version, so nothing should break).
+1). The above label and its value, is exactly what should be used in your workload. This denotes the K8s version that you prefer to run your workload on. Currently, we are using the version `1.10.2-gke.3`. Using the above nodeSelector will move(migrate) your workload, to above newer K8s verison of `1.10.6-gke.2` (Note that is is fine to migrate from & to a sub-minor version, so nothing should break).
 
-2). The label key shall remain the same but the label value will keep changing in the future as and when the new K8s versions is released. Hence, you decide which K8s version to run on and upgrade at your will by changing the above label value(Use only those label values that are mentioned above).
+2). The label key shall remain the same but the label value will keep changing in the future as and when the new K8s versions is released. Hence, you decide which K8s version to run on and upgrade at your will by changing the above label value(Use only those label values that are mentioned above, currently there is only one as seen above).
 
 
 
@@ -45,8 +45,9 @@ Because of its convenience of easy migration and rollback. Since, it is only abo
 
 There are two statements for this:- 
 
-             a). Statement 1:- Change the above nodeSelector to the previous version i.e., the previous K8s version on which your workload was running fine. 
-             b). Statement 2:- Currently, as you can see there is only one nodeSelector option available above(k8s-version: 1.10.6-gke.2), in this case it means rollback is about deleting the nodeSelector completely. But this statement will not hold true from the next migration onwards, hence this statement will be deleted and only the Statement 1, shall be valid.
+             a). Statement 1:- Change the above nodeSelector to the previous version i.e., the previous K8s version on which your workload was running fine.
+
+             b). Statement 2:- Currently, as you can see there is only one nodeSelector option available above (k8s-version: 1.10.6-gke.2), in this case it means rollback is about deleting the nodeSelector completely. But this statement will not hold true from the next migration onwards, hence this statement will be deleted and only the Statement 1, shall be valid.
 
 
 
