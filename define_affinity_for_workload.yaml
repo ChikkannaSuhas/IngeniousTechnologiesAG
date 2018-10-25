@@ -49,7 +49,7 @@ Therefore,
                    ```
 
 		       `<label_key_of_pod> ------> app`
-                       `<label_value_of_pod> ---> ui`
+                       `<label_value_of_pod> ----> ui`
                   
                    ``` 
  
