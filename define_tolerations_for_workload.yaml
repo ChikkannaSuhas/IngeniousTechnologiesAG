@@ -1,0 +1,35 @@
+
+To overcome the error of validation webhook on K8s cluster, Add the following in your workload(deployments,rc,rs,ss)
+at spec.template.spec ,
+
+
+
+#################################################################################
+
+      tolerations:
+      - effect: NoSchedule
+        key: task
+        operator: Equal
+        value: preemptive
+
+
+##################################################################################
+
+
+NOTE:- COPY PASTE EXACTLY AS ABOVE IN YOUR YAML.
+
+WARNING:- Adding the above yaml for production namespaces is your choices but for staging adding tolerations is recommended/best practice(see below).
+
+
+
+FAQs
+
+1). Why am I getting this error?
+
+To reduce costs, we need to run our staging pods on pre-emptive nodes. The above yaml code ensures that your pod runs on pre-emptive nodes. 
+
+
+2). Does it affect the pods/applications in any way, if they run on Pre-emptive nodes?
+
+No, Pre-emptive nodes(VMs) are the same as standard nodes(VMs) but at reduced costs. And also pre-emptive nodes restart every 24hrs in the context of K8s. This cannot affect staging pods/applications in any way.
+
